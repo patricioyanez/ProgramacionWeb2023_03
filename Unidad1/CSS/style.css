@@ -18,3 +18,13 @@ h3
     background: white;
     text-align: center;
 }
+.conBorde
+{
+    border-color: rgb(255, 0, 234);
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 50px;
+    
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
