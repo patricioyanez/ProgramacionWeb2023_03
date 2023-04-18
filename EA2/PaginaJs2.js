@@ -38,3 +38,4 @@ function dividir()
     alert("El total es: " + total);
 }
 
+// https://jquery.com/download/
