@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery Validaciones</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script></script>
+    <script src="PaginajQueryValidar.js"></script>
 </head>
 <body>
-    <input type="text" name="txtRut" class="txtRut" placeholder="Ej:20900400">
-    <input type="text" name="txtDv" class="txtDv" placeholder="Ej:K">
-    <input type="text" name="txtNombre" class="txtNombre" placeholder="Ej:Juan">
-    <input type="text" name="txtEmail" class="txtEmail" placeholder="Ej:usuario@mail.cl">
+    <input type="text" name="txtRut" class="txtRut" maxlength="8" placeholder="Ej:20900400" >
+    <input type="text" name="txtDv" class="txtDv" maxlength="1"  size="1" placeholder="Ej:K"><br>
+    <input type="text" name="txtNombre" class="txtNombre" maxlength="50" placeholder="Ej:Juan"><br>
+    <input type="text" name="txtEmail" class="txtEmail" maxlength="50" placeholder="Ej:usuario@mail.cl"><br>
     <button class="btnAceptar">Aceptar</button>   
+    <button class="btnLimpiar">Limpiar</button>   
 </body>
 </html>
