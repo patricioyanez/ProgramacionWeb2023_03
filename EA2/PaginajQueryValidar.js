@@ -1,14 +1,17 @@
 $(function()
 {
     let numero = '1234567890';
-    let letras = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMáéíóúÁÉÍÓÚ';
+    let letras = ' qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMáéíóúÁÉÍÓÚ';
+
+    // expresión regular
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+
 // TAREA: validar dv, nombre y correo
     $('.txtRut').keypress(function(e)
     {
         let caracter = String.fromCharCode(e.which);
         if(numero.indexOf(caracter) < 0)
             return false;
-
     })
     $('.txtDv').keypress(function(e)
     {
@@ -16,8 +19,21 @@ $(function()
         let caracter = String.fromCharCode(e.which);
         if(patron.indexOf(caracter) < 0)
             return false;
-
     })
+    $('.txtNombre').keypress(function(e)
+    {
+        let caracter = String.fromCharCode(e.which);
+        if(letras.indexOf(caracter) < 0)
+            return false;
+    })
+    $('.txtEmail').keypress(function(e)
+    {
+        let patron = numero + 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM@_-.';
+        let caracter = String.fromCharCode(e.which);
+        if(patron.indexOf(caracter) < 0)
+            return false;
+    })
+
 
     $('.btnAceptar').click(function()
     {
