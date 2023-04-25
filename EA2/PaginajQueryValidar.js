@@ -10,6 +10,14 @@ $(function()
             return false;
 
     })
+    $('.txtDv').keypress(function(e)
+    {
+        let patron = numero + 'kK';
+        let caracter = String.fromCharCode(e.which);
+        if(patron.indexOf(caracter) < 0)
+            return false;
+
+    })
 
     $('.btnAceptar').click(function()
     {
