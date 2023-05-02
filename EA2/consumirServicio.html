@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Api Rest</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $(".btnVerCategorias").click(function() {
+                $.get('https://www.themealdb.com/api/json/v1/1/categories.php',
+                function(data) {
+                    $.each(data.categories, function(i, item)
+                    {
+                        $(".tblComida").append( 
+                            '<tr><td>' + item.idCategory + 
+                                '<td><img src="' + item.strCategoryThumb + '">' +
+                                '<td>' + item.strCategory +
+                                '<td>' + item.strCategoryDescription +
+                            '</tr>'
+                        );
+                    });
+                });
+            });
+        });
+        // BUSCAR UN API QUE MUESTRE EL VALOR DE LA UF, DOLAR Y $ARG
+        // OTRA PARA EL TIEMPO(CLIMA)
+    </script>
+
+
+
+
+
+</head>
+<body>
+    <button class="btnVerCategorias">Ver categorías</button>
+    <table class="tblComida">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Imagen</th>
+                <th>Categoría</th>
+                <th>Comentario</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+</html>
