@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Api Rest</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $(".btnIndicadores").click(function() {            
+                $.getJSON('https://mindicador.cl/api', 
+                function(data) {
+                    $(".txtUf").val(data.uf.valor);
+                    $(".txtFecha").val(data.fecha.substring(0,10));
+                    $(".txtDolar").val(data.dolar.valor);
+                    $(".txtUTM").val(data.utm.valor);
+                }).fail(function() {
+                    console.log('Error al consumir la API!');
+                });
+            });
+
+            // buscar API para convertir $cl a: Euro y $argentino    
+
+        });
+    </script>
+</head>
+<body>
+    <button class="btnIndicadores">Ver indicadores</button><br>
+    <label for="txtFecha">Fecha</label>
+    <input type="date" name="txtFecha" class="txtFecha"><br>
+    <label for="txtUf">Valor Uf</label>
+    <input type="text" name="txtUf" class="txtUf"><br>
+    <label for="txtUf">Valor Dolar</label>
+    <input type="text" name="txtDolar" class="txtDolar"><br>
+    <label for="txtUf">Valor UTM</label>
+    <input type="text" name="txtUTM" class="txtUTM"><br>
+</body>
+</html>
