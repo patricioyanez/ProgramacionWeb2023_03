@@ -1,0 +1,39 @@
+{# Permite dejar comentarios    #}
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %} Administración de Marcas {% endblock %}
+{% block titulo %} Marcas {% endblock %}
+{% block mensaje %} {% endblock %}
+{% block contenido %} 
+    <div class="row">
+        <div class="col-2 offset-3">id</div>
+        <div class="col-5"><input type="text" name="id" class="form-control"></div>
+    </div>
+    <div class="row">
+        <div class="col-2 offset-3">Nombre</div>
+        <div class="col-5"><input type="text" name="nombre" class="form-control"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2 offset-3">Opciones</div>
+        <div class="col-5">
+            <input type="submit" name="Grabar" class="btn btn-danger" value="Grabar">
+            <input type="submit" name="Listar" class="btn btn-warning" value="Listar">
+            <input type="submit" name="Buscar" class="btn btn-success" value="Buscar">
+        </div>
+    </div>
+
+{% endblock %}
+{% block listado %} 
+
+    <table>
+    {% for marca in marcas %}
+        <tr>
+            <td>{{ marca.idMarca }}</td>
+            <td>{{ marca.nombre }}</td>
+            <td>{{ marca.activo }}</td>
+
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
