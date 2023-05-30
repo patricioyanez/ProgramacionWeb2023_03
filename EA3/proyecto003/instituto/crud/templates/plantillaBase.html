@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,13 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <title>{% block tituloPestana %} {% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'Images/icono.png' %}">
 </head>
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-black">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
-                <img src="icono.png" alt="No disponible" width="20%" height="20%">
+                <img src="{% static 'Images/icono.png' %}" alt="No disponible" width="20%" height="20%">
                 PC-Ntbk
               </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +36,7 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">Género</a></li>
-                      <li><a class="dropdown-item" href="#">Marca</a></li>
+                      <li><a class="dropdown-item" href="{% url 'marca' %}">Marca</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="#">Categoría</a></li>
                     </ul>
@@ -49,7 +51,7 @@
         <h1 class="text-center mt-5 mb-3">{% block titulo %} {% endblock %}</h1>
         {% block mensaje %} {% endblock %}
         {% block contenido %} {% endblock %}
-        
+
         {% block listado %} {% endblock %}
     </div>
 </body>
