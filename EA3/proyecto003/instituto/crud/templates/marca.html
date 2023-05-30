@@ -3,7 +3,14 @@
 
 {% block tituloPestana %} Administración de Marcas {% endblock %}
 {% block titulo %} Marcas {% endblock %}
-{% block mensaje %} {% endblock %}
+{% block mensaje %} 
+{% if mensaje %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{ mensaje }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+{% endblock %}
 {% block contenido %}
 <form method=POST action={% url 'marca' %}>
     {% csrf_token %}

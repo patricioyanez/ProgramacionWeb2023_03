@@ -32,8 +32,12 @@ def marca(request):
             item = Marca.objects.get(pk = id)
             context = {'item': item}
         elif 'Eliminar' in request.POST:
-            item = Marca.objects.get(pk = id)
-            item.delete()            
-
+            if id == 0:
+                context = {'mensaje': 'falta id para eliminar'}
+            else:
+                item = Marca.objects.get(pk = id)
+                item.delete() 
+                context = {'mensaje': 'eliminado con éxito'}           
+                
     
     return render(request, 'marca.html', context)
