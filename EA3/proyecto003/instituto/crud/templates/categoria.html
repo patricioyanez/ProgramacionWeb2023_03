@@ -1,8 +1,8 @@
 {# Permite dejar comentarios    #}
 {% extends "plantillaBase.html" %}
 
-{% block tituloPestana %} Administración de Marcas {% endblock %}
-{% block titulo %} Marcas {% endblock %}
+{% block tituloPestana %} Administración de Categoría {% endblock %}
+{% block titulo %} Categoría {% endblock %}
 {% block mensaje %} 
     {% if exito %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -18,11 +18,11 @@
     {% endif %}
 {% endblock %}
 {% block contenido %}
-<form method=POST action={% url 'marca' %}>
+<form method=POST action={% url 'categoria' %}>
     {% csrf_token %}
     <div class="row">
         <div class="col-2 offset-2">id</div>
-        <div class="col-5"><input type="text" name="id" class="form-control" value={{ item.idMarca }}></div>
+        <div class="col-5"><input type="text" name="id" class="form-control" value={{ item.idCategoria }}></div>
     </div>
     <div class="row">
         <div class="col-2 offset-2">Nombre</div>
@@ -54,7 +54,7 @@
             </tr>
         {% for objeto in listado %}
             <tr>
-                <td>{{ objeto.idMarca }}</td>
+                <td>{{ objeto.idCategoria }}</td>
                 <td>{{ objeto.nombre }}</td>
                 <td>{{ objeto.activo }}</td>
 
