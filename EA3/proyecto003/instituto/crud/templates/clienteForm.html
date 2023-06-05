@@ -1,0 +1,37 @@
+{# Permite dejar comentarios    #}
+{% extends "plantillaBase.html" %}
+
+{% block tituloPestana %} Administración de Cliente {% endblock %}
+{% block titulo %} Cliente {% endblock %}
+{% block mensaje %} 
+    {% if exito %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ exito }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block contenido %}
+<form method=POST action={% url 'clienteForm' %}>
+    {% csrf_token %}
+    <center>
+        <table>
+            {{ form.as_table}}
+        </table>
+    </center>
+    <br>
+    <div class="row">
+        <div class="col-2 offset-2">Opciones</div>
+        <div class="col-5">
+            <input type="submit" name="Grabar" class="btn btn-danger" value="Grabar">
+         </div>
+    </div>
+</form>
+{% endblock %}
+{% block listado %} {% endblock %}
