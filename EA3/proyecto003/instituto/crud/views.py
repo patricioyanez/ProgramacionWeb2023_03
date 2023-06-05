@@ -20,24 +20,36 @@ def marca(request):
         if 'Grabar' in request.POST:
             if id == 0: # insert
                 Marca.objects.create(nombre=nombre, activo=activo)
+                context = {'exito':'Datos guardados'}
             else: #update
-                item = Marca.objects.get(pk = id)
-                item.nombre = nombre
-                item.activo = activo
-                item.save()
+                try:
+                    item = Marca.objects.get(pk = id)
+                    item.nombre = nombre
+                    item.activo = activo
+                    item.save()
+                    context = {'exito':'Datos guardados'}
+                except:
+                    context = {'error':'Error en la solicitud de guardar'}
         elif 'Listar' in request.POST:
             listado = Marca.objects.all()
             context = {'listado': listado}
         elif 'Buscar' in request.POST:
-            item = Marca.objects.get(pk = id)
-            context = {'item': item}
+            try:
+                item = Marca.objects.get(pk = id)
+                context = {'item': item}
+            except:
+                context = {'error':'Error en la búsqueda del id especificado'}
         elif 'Eliminar' in request.POST:
             if id == 0:
-                context = {'mensaje': 'falta id para eliminar'}
+                context = {'error': 'falta id para eliminar'}
             else:
-                item = Marca.objects.get(pk = id)
-                item.delete() 
-                context = {'mensaje': 'eliminado con éxito'}           
+                try:
+                    item = Marca.objects.get(pk = id)
+                    item.delete() 
+                    context = {'exito': 'eliminado con éxito'}   
+                except:
+                    context = {'error':'Error en la eliminación del id especificado'}        
                 
     
     return render(request, 'marca.html', context)
+
