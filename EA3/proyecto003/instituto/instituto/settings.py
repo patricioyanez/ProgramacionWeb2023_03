@@ -55,7 +55,7 @@ ROOT_URLCONF = 'instituto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,4 +123,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# py manage.py migrate
+
+LOGIN_REDIRECT_URL = 'menu'
+LOGOUT_REDIRECT_URL= ''

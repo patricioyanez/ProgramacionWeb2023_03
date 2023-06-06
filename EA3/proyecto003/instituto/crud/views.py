@@ -9,6 +9,9 @@ from .forms import ClienteForm
     context= {"marcas": marcas}
     return render(request, 'marca.html', context)"""
 
+def menu(request):
+    return render(request, 'menu.html')
+
 def clienteForm(request):
     context = {}
     if request.method == "POST":
