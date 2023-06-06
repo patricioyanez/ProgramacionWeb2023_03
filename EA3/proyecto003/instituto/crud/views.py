@@ -3,15 +3,21 @@ from .models import Marca, Categoria, Genero
 
 # importar los forms
 from .forms import ClienteForm
+
+# importar los decoradores de auth de django
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 """def marca(request):
     marcas = Marca.objects.all() # select * from Marca
     context= {"marcas": marcas}
     return render(request, 'marca.html', context)"""
 
+@login_required
 def menu(request):
     return render(request, 'menu.html')
 
+@login_required
 def clienteForm(request):
     context = {}
     if request.method == "POST":
@@ -27,6 +33,7 @@ def clienteForm(request):
         
     return render(request, 'clienteForm.html', context)
 
+@login_required
 def marca(request):
     context = {}
 
@@ -73,6 +80,7 @@ def marca(request):
     
     return render(request, 'marca.html', context)
 
+@login_required
 def categoria(request):
     context = {}
 
@@ -119,6 +127,7 @@ def categoria(request):
     
     return render(request, 'categoria.html', context)
 
+@login_required
 def genero(request):
     context = {}
 
