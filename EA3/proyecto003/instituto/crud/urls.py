@@ -12,4 +12,5 @@ urlpatterns = [
 # 127.0.0.1:8000/crud/marca
 # 
 # EJERCICIOS: crear crud categoria y genero
-# TAREA: crear modelo para producto
+# TAREA 2: crear modelo para producto
+# tarea 3: al logout preguntar al usuario si está seguro de cerrar sesión
